@@ -1,0 +1,67 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+5. Scroll down and click **"Commit changes"**
+6. Click **"Commit changes"** again in the popup
+
+---
+
+### **Step 2: Enable GitHub Actions in Pages Settings**
+
+1. Go back to **Settings** → **Pages**
+2. Under **"Source"**, look for an option that says **"GitHub Actions"**
+3. Select **"GitHub Actions"** (instead of "Deploy from a branch")
+4. You don't need to click Save - it should update automatically
+
+---
+
+### **Step 3: Wait for Deployment**
+
+1. Go to the **"Actions"** tab at the top of your repository
+2. You should see a workflow running (with a yellow/orange dot)
+3. Wait for it to complete (green checkmark ✓)
+4. This usually takes 1-2 minutes
+
+---
+
+### **Step 4: Check Your Site**
+
+After the workflow completes:
+1. Go back to **Settings** → **Pages**
+2. At the top, you should see: **"Your site is live at https://borisira19.github.io/My-plotfolio/"**
+3. Click the link or copy it to your browser
+
+---
+
+## **Your Website URL:**
+```
+https://borisira19.github.io/My-plotfolio/
